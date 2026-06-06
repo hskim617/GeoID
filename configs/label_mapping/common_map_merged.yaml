@@ -1,0 +1,67 @@
+labels:
+  0 : 'noise' # noise including barrier & traffic cone
+  1 : 'bicycle'
+  2 : 'vehicle'
+  3 : 'motorcycle'
+  4 : 'pedestrian'
+  5 : 'driveable_surface'
+  6 : 'other_flat'
+  7 : 'sidewalk'
+  8 : 'terrain'
+  9 : 'manmade'
+  10: 'vegetation'
+
+color_map: # bgr
+  0 : [0, 0, 0]
+  1 : [245, 230, 100]
+  2 : [250, 80, 100]
+  3 : [245, 150, 100]
+  4 : [150, 60, 30]
+  5 : [30, 30, 255]
+  6 : [180, 30, 80]
+  7 : [255, 0, 255]
+  8 : [75, 0, 175]
+  9 : [75, 0, 75]
+  10: [80, 240, 150]
+  11: [0, 200, 255]
+  12: [0, 175, 0]
+
+learning_map_from_kitti_to_common:
+  1: 2 # "car" to "vehicle"
+  2: 1 # "bicycle" to "bicycle"
+  3: 3 # "motorcycle" to "motorcycle"
+  4: 2 # "truck" to "vehicle"
+  5: 2 # "other-vehicle" to "vehicle"
+  6: 4 # "person" to "pedestrian"
+  7: 1 # "bicyclist" to "bicycle"
+  8: 3 # "motorcyclist" to "motorcycle"
+  9: 5 # "road" to "drivable surface"
+  10: 5 # "parking" to "drivable surface"
+  11: 7 # "sidewalk" to "sidewalk"
+  12: 6 # "other-ground" to "other-flat"
+  13: 9 # "building" to "manmade"
+  14: 9 # "fence" to "manmade"
+  15: 10 # "vegetation" to "vegetation"
+  16: 10 # "trunk" to "vegetation"
+  17: 8 # "terrain" to "terrain"
+  18: 9 # "pole" to "manmade"
+  19: 9 # "traffic-sign" to "manmade"
+
+learning_map_from_nusc_to_common:
+  1: 9 # 'barrier' to 'manmade'
+  2: 1 # 'bicycle' to 'bicycle'
+  3: 2 # 'bus' to 'vehicle'
+  4: 2 # 'car' to 'vehicle'
+  5: 2 # 'construction_vehicle' to 'vehicle'
+  6: 3 # 'motorcycle' to 'motorcycle'
+  7: 4 # 'pedestrian' to 'pedestrian'
+  8: 9 # 'traffic_cone' to 'manmade'
+  9: 2 # 'trailer' to 'vehicle'
+  10: 2 # 'truck' to 'vehicle'
+  11: 5 # 'driveable_surface' to 'drivable_surface'
+  12: 6 # 'other_flat' to 'other_flat'
+  13: 7 # 'sidewalk' to 'sidewalk'
+  14: 8 # 'terrain' to 'terrain'
+  15: 9 # 'manmade' to 'manmade'
+  16: 10 # 'vegetation' to 'vegetation'
+

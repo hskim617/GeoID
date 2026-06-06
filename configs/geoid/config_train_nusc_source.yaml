@@ -1,0 +1,107 @@
+##################
+## Model options
+model:
+  name: 'MinkUNet34_geoid'
+  in_feat_size: 1
+  out_classes: 16
+
+###################
+## Dataset options
+dataset_SemKITTI:
+  data_path: "./data/SemanticKITTI/sequences"
+  ignore_label: 0
+  label_mapping: "./configs/label_mapping/semantic-kitti.yaml"
+  max_volume_space:
+    - 50.
+    - 50.
+    - 2.
+  min_volume_space:
+    - -50.
+    - -50.
+    - -4.
+  voxel_size: 0.2
+  beam: 64
+  fov: [-23.6, 3.2]
+
+  
+dataset_nuScenes:
+  data_path: "./data/nuScenes"
+  ignore_label: 0
+  label_mapping: "./configs/label_mapping/nuscenes.yaml"
+  max_volume_space:
+    - 50.
+    - 50.
+    - 3
+  min_volume_space:
+    - -50.
+    - -50.
+    - -5
+  voxel_size: 0.2
+  beam: 32
+  fov: [-30.67, 10.67]
+  
+###################
+## Dataloader options
+train_dataloader:
+  training: True
+  batch_size: 4
+  shuffle: True
+  num_workers: 8
+  pin_memory: True
+  drop_last: True
+
+val_dataloader:
+  training: False
+  batch_size: 1
+  shuffle: False
+  num_workers: 8
+  pin_memory: False
+
+test_dataloader:
+  training: False
+  batch_size: 1
+  shuffle: False
+  num_workers: 8
+  pin_memory: False
+
+###################
+## GeoID params
+geoid_params:
+  use_geoid: True
+  geoid_type: 'frame'
+  geoid_configure_type: 'axis'
+  geoid_p: 0.0
+  min_dist: 1
+  max_dist: 3
+
+  
+###################
+## Train params
+train_params:
+  max_steps: 400000
+  learning_rate: 0.01
+  criterion: "cross_entropy"
+  use_pretrained: False
+  pretrained_ckpt_path: null
+  resume_ckpt: null
+  
+generalization_params:
+  source: 'nuscenes'
+  target: ['nuscenes']
+  use_ref: True
+  use_instance: False
+
+#####################
+## Experiment params
+exp_params:
+  exp_name: "ExpGeoID"
+  log_dir: "nusc_source_train"
+  log_freq: 500
+
+###################
+## Test params
+test_params:
+  target: ['nuscenes'] 
+  log_dir: "test"
+  visualization: False
+  ckpt_path: null
