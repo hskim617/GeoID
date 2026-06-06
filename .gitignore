@@ -33,6 +33,7 @@ events.out.tfevents.*
 *.ply
 
 # ===== Datasets =====
+data/
 .data/
 
 
